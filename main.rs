@@ -1,6 +1,8 @@
 use std::ptr;
 use std::ffi::CString;
 
+mod handle_connection; 
+
 use libc::accept;
 
 const BACKLOG: i32 = 10;
@@ -26,8 +28,9 @@ fn main() {
 
         //TODO: don't break on recoverable errors
         if new_fd == -1 { break; } 
-        // spawn thread to handle the connection here
+        todo!("spawn worker thread");
     }
+    todo!("graceful shutdown");
 }
 
 fn setup_listener() -> Result<i32, String> {
