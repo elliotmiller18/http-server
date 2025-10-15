@@ -1,6 +1,7 @@
 use std::ptr;
 use std::ffi::CString;
 
+mod utils;
 mod handle_connection; 
 
 use libc::accept;
@@ -29,7 +30,7 @@ fn main() {
         //TODO: don't break on recoverable errors
         if new_fd == -1 { break; } 
         todo!("spawn worker thread");
-    }
+    };
     todo!("graceful shutdown");
 }
 
